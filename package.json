@@ -4,7 +4,9 @@
   "description": "This repository contains the source code for a Slack bot that uses OpenAI's GPT-3 language model to generate responses to messages. The bot listens for messages in Slack channels or direct messages that contain the @openai mention, and uses GPT-3 to generate a response based on the message text.",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,9 +31,12 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "dotenv": "^16.0.3",
+    "next": "^13.0.6",
+    "ngrok": "^4.3.3",
     "openai": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind": "^4.0.0",
     "typescript": "^4.9.4"
   }
 }
