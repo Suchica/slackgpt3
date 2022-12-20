@@ -16,8 +16,6 @@ const chatWithGPT3 = async (
     AI: 
   `;
 
-  const model = process.env.OPENAI_MODEL;
-  console.log(model);
   // Creates a completion for the provided prompt and parameters
   // See https://beta.openai.com/docs/api-reference/completions/create?lang=node.js
   const response = await openai.createCompletion({

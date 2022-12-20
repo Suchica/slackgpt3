@@ -1,17 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-internal-modules */
-import './utils/env';
-// @ts-ignore
-import { App, LogLevel } from '@slack/bolt';
-import routes from './routes';
-import { chatWithGPT3 } from './lib/openAI';
-
-const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-  logLevel: LogLevel.INFO, // Or LogLevel.DEBUG for debugging
-  customRoutes: routes
-});
+import app from "./lib/slackAuth";
+import { chatWithGPT3 } from "./lib/openAI";
 
 // @ts-ignore
 app.event("app_mention", async ({ event, say }) => {
@@ -38,13 +26,12 @@ app.event("app_mention", async ({ event, say }) => {
 
     // Send the messages to Open AI's GPT-3
     const response = await chatWithGPT3(messagesString, user, text);
-    console.log('response', response);
 
     // Response to the message in the thread where the event was triggered with @${message.user} using openai's node.js library
     // See https://slack.dev/bolt-js/concepts#message-sending
     await say({
       text: `<@${event.user}> ${response}`,
-      thread_ts: event.ts,
+      thread_ts: threadTs,
     });
   } catch (error: any) {
     await say({
@@ -53,9 +40,3 @@ app.event("app_mention", async ({ event, say }) => {
     });
   }
 });
-
-(async () => {
-  // Start your app
-  await app.start(Number(process.env.PORT) || 3000);
-  console.log('⚡️ Bolt app is running!');
-})();
