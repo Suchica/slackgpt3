@@ -1,18 +1,18 @@
 const routes = [
   {
-    path: "/health",
+    path: "/health", // To check if the app is running
     method: ["GET"],
     // @ts-ignore
-    handler: (req, res) => {
+    handler: (_req, res) => {
       res.writeHead(200);
       res.end("Server running " + new Date().toISOString() );
     },
   },
   {
-    path: "/slack/events",
-    method: ["POST"],
+    path: "/slack/events", // The default path for listening to Slack events
+    method: ["POST"], // Must be POST
     // @ts-ignore
-    handler: (req, res) => {
+    handler: (_req, res) => {
       res.writeHead(200);
     },
   },
