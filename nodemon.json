@@ -1,4 +1,3 @@
-// See https://medium.com/@sudarshanadayananda/how-to-live-reload-typescript-node-server-bc40171fdb7
 {
   "ignore": ["**/*.test.ts", "**/*.spec.ts", "node_modules"],
   "watch": ["src"],
