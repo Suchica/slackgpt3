@@ -29,4 +29,22 @@ interface Event {
   event_ts: string; // '1670833732.610129'
 }
 
-export type { Element, Block, Event };
+interface Installation {
+  isEnterpriseInstall: boolean;
+  enterprise?: {
+    id: string;
+    name: string;
+  };
+  team?: {
+    id: string;
+    name: string;
+  };
+}
+
+interface InstallQuery {
+  isEnterpriseInstall: boolean;
+  enterpriseId?: string;
+  teamId?: string;
+}
+
+export type { Element, Block, Event, Installation, InstallQuery };
