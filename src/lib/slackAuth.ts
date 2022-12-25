@@ -86,6 +86,7 @@ const app = new App({
   // },
   logLevel: LogLevel.INFO, // Or LogLevel.DEBUG for debugging
   customRoutes: routes,
+  port: Number(process.env.PORT) || 3000,
 });
 
 // Start bolt for JavaScript
