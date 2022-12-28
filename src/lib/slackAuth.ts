@@ -82,7 +82,7 @@ const app = new App({
     stateVerification: false, // default: true. See https://slack.dev/bolt-js/concepts#org-wide-installation
     directInstall: true, // default: false. See https://slack.dev/bolt-js/concepts#installing-your-app
   },
-  logLevel: LogLevel.INFO, // Or LogLevel.DEBUG for debugging
+  logLevel: LogLevel.INFO, // LogLevel.INFO Or LogLevel.DEBUG
   customRoutes: routes,
   port: Number(process.env.PORT) || 3000,
 });
