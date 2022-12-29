@@ -29,6 +29,7 @@ interface Event {
   event_ts: string; // '1670833732.610129'
 }
 
+// See https://slack.dev/bolt-js/concepts#installation-object
 interface Installation {
   isEnterpriseInstall: boolean;
   enterprise?: {
@@ -36,15 +37,32 @@ interface Installation {
     name: string;
   };
   team?: {
-    id: string;
-    name: string;
+    id: string; // T02DG7N3V1B
+    name: string; // Suchica
   };
+  appId: string; // A04HA6JJL2C
+  user: {
+    id: string; // U02DK80DN9H
+    scopes: string[] | undefined;
+    token: string | undefined;
+  };
+  tokenType: string; // bot
+  bot?: {
+    id: string; // B04HA6JL2C
+    userId: string; // U04GLCAD1HR, different from user.id
+    scopes: string[] | undefined; // ['chat:write', 'commands']
+    token: string; // xoxb-...
+  };
+  authVersion: string; // v2
 }
 
+// See https://slack.dev/bolt-js/concepts#installation-object
 interface InstallQuery {
   isEnterpriseInstall: boolean;
-  enterpriseId?: string;
-  teamId?: string;
+  enterpriseId: string | undefined; // E02DG7N3V1B
+  teamId: string | undefined; // T02DG7N3V1B
+  userId: string | undefined; // U02DK80DN9H
+  conversationId: string | undefined; // C02DG7N3V1B
 }
 
 export type { Element, Block, Event, Installation, InstallQuery };
