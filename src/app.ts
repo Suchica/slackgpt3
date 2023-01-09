@@ -1,7 +1,9 @@
 import app from "./lib/slackAuth";
 import { chatWithGPT3 } from "./lib/openAI";
+import { searchSubscriptionAndCancel } from "./lib/stripe";
 require("dotenv").config();
 
+// Respond to app_mention events
 // @ts-ignore
 app.event("app_mention", async ({ event, client, say }) => {
   try {
@@ -43,5 +45,20 @@ app.event("app_mention", async ({ event, client, say }) => {
       text: `<@${event.user}> ${error.message}. ${error.response?.statusText}.`, // @userName Request failed with status code 429. Too Many Requests.
       thread_ts: event.ts,
     });
+  }
+});
+
+// Cancel a subscription in Stripe when receiving app_uninstalled event
+// See https://slack.dev/bolt-js/reference#listener-function-arguments
+// @ts-ignore
+app.event("app_uninstalled", async ({ context }) => {
+  try {
+    // Get the workspace id
+    const id = context?.enterpriseId || context?.teamId;
+
+    // Search for the subscription in Stripe and cancel it
+    await searchSubscriptionAndCancel(id);
+  } catch (error: any) {
+    console.error(error);
   }
 });
