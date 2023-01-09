@@ -4,6 +4,7 @@ import storeOrgInstall from "../db/storeOrgInstall";
 import storeWorkspaceInstall from "../db/storeWorkspaceInstall";
 import getInstall from "../db/getInstall";
 import deleteInstall from "../db/deleteInstall";
+import { createCustomerAndSubscription } from "./stripe";
 require("dotenv").config();
 const { App, LogLevel } = require("@slack/bolt");
 
@@ -11,9 +12,9 @@ const { App, LogLevel } = require("@slack/bolt");
 // See https://slack.dev/bolt-js/tutorial/getting-started#setting-up-your-project
 // And see https://slack.dev/bolt-js/concepts#authenticating-oauth
 const app = new App({
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-  clientId: process.env.SLACK_CLIENT_ID,
-  clientSecret: process.env.SLACK_CLIENT_SECRET,
+  signingSecret: process.env.SLACK_SIGNING_SECRET, // Verify that incoming requests are really from Slack
+  clientId: process.env.SLACK_CLIENT_ID, // For OAuth 2.0
+  clientSecret: process.env.SLACK_CLIENT_SECRET, // For OAuth 2.0
   scopes: [
     "app_mentions:read",
     "channels:history",
@@ -30,11 +31,27 @@ const app = new App({
         installation.isEnterpriseInstall &&
         installation.enterprise !== undefined
       ) {
+        // Verify customer and subscription presence, then create if necessary
+        await createCustomerAndSubscription(
+          installation.enterprise.id,
+          installation.enterprise.name,
+          "enterpriseId"
+        );
+
+        // Store the installation in Supabase
         return await storeOrgInstall(installation);
       }
 
       // single team app installation
       if (installation.team !== undefined) {
+        // Verify customer and subscription presence, then create if necessary
+        await createCustomerAndSubscription(
+          installation.team.id,
+          installation.team.name,
+          "teamId"
+        );
+
+        // Store the installation in Supabase
         return await storeWorkspaceInstall(installation);
       }
 

@@ -14,7 +14,8 @@
     "@slack/bolt": "^3.12.2",
     "@supabase/supabase-js": "^2.2.1",
     "dotenv": "^16.0.3",
-    "openai": "^3.1.0"
+    "openai": "^3.1.0",
+    "stripe": "^11.5.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
