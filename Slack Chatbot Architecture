@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-12T08:10:44.997Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="rOACi3gpPtXYQidCDmqX" version="20.8.3" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-12T08:11:25.723Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="TMOMgwqrZVPypklptvuq" version="20.8.3" type="github">
   <diagram id="mSNjWXtY2sJ1bUkVZOzl" name="When you install">
     <mxGraphModel dx="1723" dy="968" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
@@ -202,7 +202,7 @@
         <mxCell id="-iFzE3ALuils-dm04GrO-3" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Payment&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="1460" y="1020" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="-iFzE3ALuils-dm04GrO-6" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Privacy&lt;br&gt;Policy&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="-iFzE3ALuils-dm04GrO-6" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Privacy&lt;br&gt;Policy / ToC&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="500" y="540" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="-iFzE3ALuils-dm04GrO-12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;jumpStyle=arc;jumpSize=16;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="-iFzE3ALuils-dm04GrO-7" target="-iFzE3ALuils-dm04GrO-2" edge="1">
